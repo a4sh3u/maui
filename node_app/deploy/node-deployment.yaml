@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maui-deployment
+  labels:
+    app: maui
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: maui
+  template:
+    metadata:
+      labels:
+        app: maui
+    spec:
+      containers:
+      - name: maui
+        image: ashu99/node-db-connect:0.1
+        ports:
+        - containerPort: 4000
+        env:
+          - name: MYSQL_HOST
+            value: 'mysql-read'
