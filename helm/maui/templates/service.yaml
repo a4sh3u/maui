@@ -11,6 +11,5 @@ spec:
       targetPort: {{ .Values.appPort }}
       protocol: TCP
       name: http
-      nodePort: {{ .Values.nodePort }}
   selector:
     {{- include "maui.selectorLabels" . | nindent 4 }}

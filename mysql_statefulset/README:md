@@ -1,5 +1,0 @@
-# Mysql StatefulSet
-
-## Ideally - This code snippet will be able to deploy highly-available mysql statefulset on a k8s cluster with desired no. of master & slave nodes in helm values file. All master nodes will be actively replicated and will be used for write purposes. Slave nodes to be used for read purposes.
-
-Step 1 - Deploy single master with multiple slave nodes
