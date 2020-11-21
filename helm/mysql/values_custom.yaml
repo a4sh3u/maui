@@ -1,0 +1,19 @@
+root:
+  password: password
+db:
+  user: user
+  password: password
+  name: db
+replication:
+  enabled: false
+slave:
+  replicas: 0
+initdbScripts:
+  my_init_script.sh: |
+     #!/bin/sh
+     if [[ $(hostname) == *master* ]]; then
+       echo "Master node"
+       mysql -P 3306 -uroot -ppassword -e "ALTER USER user IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;";
+       mysql -P 3306 -uroot -ppassword -e "USE db; CREATE TABLE greeting (msg VARCHAR(40) NOT NULL); INSERT INTO greeting(msg) VALUES('Hello World');"
+       echo "No master node"
+     fi
