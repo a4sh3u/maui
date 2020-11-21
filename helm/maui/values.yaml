@@ -6,7 +6,7 @@ replicaCount: 3
 appPort: 4000
 mysqlServiceName: maui-mysql
 image:
-  repository: ashu99/node-db-connect
+  repository: ashu99/maui
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.0"

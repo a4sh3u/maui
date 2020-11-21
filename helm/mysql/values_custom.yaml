@@ -15,5 +15,6 @@ initdbScripts:
        echo "Master node"
        mysql -P 3306 -uroot -ppassword -e "ALTER USER user IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;";
        mysql -P 3306 -uroot -ppassword -e "USE db; CREATE TABLE greeting (msg VARCHAR(40) NOT NULL); INSERT INTO greeting(msg) VALUES('Hello World');"
+     else
        echo "No master node"
      fi

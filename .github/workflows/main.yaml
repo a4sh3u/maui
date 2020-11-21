@@ -22,10 +22,8 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: ashu99/maui
-          pre: echo ::save-state name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           context: src
           dockerfile: src/Dockerfile
-          tags: "latest,${{ env.STATE_RELEASE_VERSION }}"
           tag_names: true

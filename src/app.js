@@ -45,10 +45,9 @@ app.get('/', (req, res) => {
                 message: 'Error occured'
             });
         } else {
-            res.json({
-                success: true,
-                result: results
-            });
+            const jstr = JSON.stringify(results);
+            const j = JSON.parse(jstr)
+            res.send(j[0].msg)
         }
     });
 });
